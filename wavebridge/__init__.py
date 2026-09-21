@@ -10,7 +10,13 @@ from .codec import (
     decode_pcm16,
     quantization_error,
 )
+from .experiment import (
+    SurvivalReport,
+    run_weight_survival,
+    sweep_channel_survival,
+)
 from .format import WaveSpec
+
 __all__ = [
     "WaveSpec",
     "ChannelSpec",
@@ -21,4 +27,7 @@ __all__ = [
     "encode_pcm16",
     "decode_pcm16",
     "quantization_error",
+    "SurvivalReport",
+    "run_weight_survival",
+    "sweep_channel_survival",
 ]
