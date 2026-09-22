@@ -31,6 +31,7 @@ from .transport import packet_to_waveform, waveform_to_packet
 from .channel_profile import ChannelProfile, OpticalChannelProfile
 from .calibration import calibrate_from_probe, probe_waveform
 from .hardware.audio import AudioFileChannel, AudioLoopbackChannel
+from .hardware.serial_backend import ESP32SerialBackend, SerialConfig
 from .hardware.optical import (
     SimulatedOpticalChannel,
     OpticalChannel,
@@ -78,4 +79,6 @@ __all__ = [
     "OpticalChannel",
     "OpticalBodySimulator",
     "OpticalPathSpec",
+    "ESP32SerialBackend",
+    "SerialConfig",
 ]

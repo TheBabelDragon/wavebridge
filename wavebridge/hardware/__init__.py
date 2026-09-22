@@ -1,6 +1,7 @@
 """Hardware backends for WaveBridge physical channels."""
 
 from .audio import AudioFileChannel, AudioLoopbackChannel
+from .serial_backend import ESP32SerialBackend, SerialConfig, SerialExcitationResult
 from .optical import (
     OpticalBodySimulator,
     OpticalChannel,
@@ -19,4 +20,7 @@ __all__ = [
     "OpticalPathSpec",
     "OpticalBodySimulator",
     "OpticalExcitationRecord",
+    "ESP32SerialBackend",
+    "SerialConfig",
+    "SerialExcitationResult",
 ]
