@@ -28,6 +28,8 @@ from .physical import (
 )
 from .sync import SyncError, extract_packet, frame_to_waveform, transmit_framed
 from .transport import packet_to_waveform, waveform_to_packet
+from .channel_profile import ChannelProfile, OpticalChannelProfile
+from .calibration import calibrate_from_probe, probe_waveform
 
 __all__ = [
     "WaveSpec",
@@ -42,15 +44,12 @@ __all__ = [
     "SurvivalReport",
     "run_weight_survival",
     "sweep_channel_survival",
-    # Transport-neutral boundary
     "FieldPacket",
     "encode_field",
     "decode_field",
     "Observation",
-    # MetaField-facing API
     "encode_field_state",
     "decode_field_observation",
-    # Physical / transport / sync
     "PhysicalChannel",
     "SimulatedChannel",
     "packet_roundtrip",
@@ -62,4 +61,8 @@ __all__ = [
     "extract_packet",
     "frame_to_waveform",
     "transmit_framed",
+    "ChannelProfile",
+    "OpticalChannelProfile",
+    "calibrate_from_probe",
+    "probe_waveform",
 ]
