@@ -68,3 +68,25 @@ Design rules:
   they are not required for the first integration commit.
 
 See `tests/test_metafield_roundtrip.py` for a pure-numerical closed loop.
+
+## Inspecting a real field payload
+
+Generate a deterministic test field and round-trip it through the public API:
+
+```bash
+python examples/generate_test_weights.py
+python examples/inspect_real_payload.py
+```
+
+This demonstrates the transport-neutral path only:
+
+```
+NumPy field
+  → encode_field_state
+  → FieldPacket
+  → decode_field
+  → reconstructed field
+```
+
+No physical hardware, modulation, PAM, laser, or BPW34 path is involved.
+The example reports shape, weight count, payload bytes, and max/mean absolute error after PCM16 quantization.
