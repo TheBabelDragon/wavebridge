@@ -30,6 +30,7 @@ from .sync import SyncError, extract_packet, frame_to_waveform, transmit_framed
 from .transport import packet_to_waveform, waveform_to_packet
 from .channel_profile import ChannelProfile, OpticalChannelProfile
 from .calibration import calibrate_from_probe, probe_waveform
+from .hardware.audio import AudioFileChannel, AudioLoopbackChannel
 
 __all__ = [
     "WaveSpec",
@@ -65,4 +66,6 @@ __all__ = [
     "OpticalChannelProfile",
     "calibrate_from_probe",
     "probe_waveform",
+    "AudioFileChannel",
+    "AudioLoopbackChannel",
 ]
