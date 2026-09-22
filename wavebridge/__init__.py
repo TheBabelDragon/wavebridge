@@ -16,6 +16,9 @@ from .experiment import (
     sweep_channel_survival,
 )
 from .format import WaveSpec
+from .bridge import FieldPacket, encode_field, decode_field
+from .observation import Observation
+from .metafield import encode_field_state, decode_field_observation
 
 __all__ = [
     "WaveSpec",
@@ -30,4 +33,12 @@ __all__ = [
     "SurvivalReport",
     "run_weight_survival",
     "sweep_channel_survival",
+    # Transport-neutral boundary
+    "FieldPacket",
+    "encode_field",
+    "decode_field",
+    "Observation",
+    # MetaField-facing API
+    "encode_field_state",
+    "decode_field_observation",
 ]
