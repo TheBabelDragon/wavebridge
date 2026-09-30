@@ -90,3 +90,38 @@ NumPy field
 
 No physical hardware, modulation, PAM, laser, or BPW34 path is involved.
 The example reports shape, weight count, payload bytes, and max/mean absolute error after PCM16 quantization.
+
+## Optional TensorGate numerical boundary
+
+TensorGate is an **optional** dependency for explicit numerical inspection,
+normalization, and provenance at the weight boundary.
+
+```
+weights
+  → TensorGate.prepare_weights   (optional, explicit)
+  → WaveBridge.encode_field      (FieldPacket / PCM)
+  → physical transport
+  → WaveBridge.decode_field
+  → TensorGate.observe_recovered (optional)
+  → TensorGate.compare
+```
+
+Install when needed:
+
+```bash
+pip install tensorgate
+```
+
+```python
+from wavebridge.tensorgate_boundary import prepare_weights, observe_recovered, roundtrip_compare
+from wavebridge import encode_field, decode_field
+
+payload, meta = prepare_weights(weights, method="symmetric")
+packet = encode_field(payload, metadata={"tensorgate": meta})
+recovered, _ = decode_field(packet)
+observed, _ = observe_recovered(recovered, source_meta=meta)
+print(roundtrip_compare(payload, recovered))
+```
+
+Ordinary WaveBridge use does **not** require TensorGate.
+TensorGate owns the numbers; WaveBridge owns the waveform and transport.
